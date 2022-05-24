@@ -1,2 +1,2 @@
 #!/bin/bash
-sort etc/passswd | cut -d -f 1,6
+echo Hola
