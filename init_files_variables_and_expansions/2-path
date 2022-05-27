@@ -1,2 +1,2 @@
 #!/bin/bash
-export ÑATH="$HOME/action:$PATH"
+export PATH="$PATH:/action"
