@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#If and While loop
+
+TIMES=0
+while [ "$TIMES" -lt 10 ]
+do
+	echo "Best School"
+	TIMES=$((TIMES+1))
+	if [ "$TIMES" -eq 9 ]; then
+		echo "Hi"
+	fi
+done
