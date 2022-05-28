@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Until loop
+
+TIMES=0
+
+until [ "$TIMES" -eq 10 ]
+do
+	echo "Best School"
+	TIMES=$((TIMES+1))
+done
+
