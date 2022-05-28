@@ -2,23 +2,14 @@
 #Clock with while loop
 
 HOURS=0
-MINUTES=0
-
-echo "Hour: $HOURS"
-
-while [ $MINUTES -lt 590 ]
+while [ "$HOURS" -lt 13 ]
 do
-	MINUTES=$((MINUTES+1))
-	echo $MINUTES
-
-	case $MINUTES in
-	59) 
+	echo "Hour: $HOURS"
+	MINUTE=1
+	while [ "$MINUTE" -lt 60 ]
+	do
+		echo $MINUTE
+		MINUTE=$((MINUTE+1))
+	done
 	HOURS=$((HOURS+1))
-	MINUTES=0
-	echo "Hour: $HOURS";;
-	esac
-	case $HOURS in
-	12)
-	exit;;
-	esac
 done	
