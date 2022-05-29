@@ -10,7 +10,9 @@ do
 	USERINF=$(echo "$line" | cut -d':' -f5)
 	HOMEDIR=$(echo "$line" | cut -d':' -f6)
 	CMDSH=$(echo "$line" | cut -d':' -f7)
-
-	echo -e "The user $UNAME is part of the $GROUPI gang, \nlives in $HOMEDIR and rides $CMDSH.\n$USERI's place is protected by the passcode $PASSW, \n more info about the user here: $USERINF"
+	
+	echo -e -n "The user $UNAME is part of the $GROUPI  gang, "
+       echo -e -n  "lives in $HOMEDIR  and rides $CMDSH."
+      echo -e -n "$USERI  place is protected by the passcode $PASSW, "
+     echo -e -n " more info about the user here: $USERINF"
 done < /etc/passwd
-
