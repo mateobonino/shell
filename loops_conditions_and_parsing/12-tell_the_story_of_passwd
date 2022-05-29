@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#Story of passwd
+
+while IFS= read -r line
+do
+	UNAME=$(echo "$line" | cut -d':' -f1)
+	PASSW=$(echo "$line" | cut -d':' -f2)
+	USERI=$(echo "$line" | cut -d':' -f3)
+	GROUPI=$(echo "$line" | cut -d':' -f4)
+	USERINF=$(echo "$line" | cut -d':' -f5)
+	HOMEDIR=$(echo "$line" | cut -d'/' -f2)
+	CMDSH=$(echo "$line" | cut -d'/' -f3)
+
+	echo "The user $UNAME is part of the $GROUPI gang, lives in $HOMEDIR and rides $CMDSH. $USERI's place is protected by the
+	passcode $PASSW, more info about the user here: $USERINF"
+done < /etc/passwd
+
