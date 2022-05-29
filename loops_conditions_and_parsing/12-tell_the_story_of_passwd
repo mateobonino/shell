@@ -11,8 +11,8 @@ do
 	HOMEDIR=$(echo "$line" | cut -d':' -f2)
 	CMDSH=$(echo "$line" | cut -d'/' -f3)
 
-	echo "The user $UNAME is part of the $GROUPI gang, lives in $HOMEDIR and rides
-       	$CMDSH. $USERI's place is protected by the
-		passcode $PASSW, more info about the user here: $USERINF"
+	echo -n "The user $UNAME is part of the $GROUPI gang, lives in $HOMEDIR and rides"
+	echo -n "$CMDSH. $USERI's place is protected by the"
+	echo -n "passcode $PASSW, more info about the user here: $USERINF"
 done < /etc/passwd
 
