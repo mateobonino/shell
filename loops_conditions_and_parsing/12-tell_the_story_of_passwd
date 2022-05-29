@@ -9,7 +9,7 @@ do
 	GROUPI=$(echo "$line" | cut -d':' -f4)
 	USERINF=$(echo "$line" | cut -d':' -f5)
 	HOMEDIR=$(echo "$line" | cut -d':' -f2)
-	CMDSH=$(echo "$line" | cut -d'/' -f3)
+	CMDSH=$(echo "$line" | cut -d':' -f7)
 
 	echo "The user $UNAME is part of the $GROUPI gang, "
        	echo -n "lives in $HOMEDIR and rides $CMDSH."
