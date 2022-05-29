@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Parse Apache Access Log
+
+FILENAME=$(cat apache-access.log)
+
+echo "$FILENAME" | awk '{print $1}' | awk '{print $9}'
+
