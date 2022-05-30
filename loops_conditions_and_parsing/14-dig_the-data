@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Dig the data
 
-awk '{print $10}' apache-access.log | sort | uniq -c | sort -fr | awk '{print $1 " " $9}' apaache-access.log
+awk '{print $10 " " $1 " " $9}' apache-access.log | sort | uniq -c | sort -fn
