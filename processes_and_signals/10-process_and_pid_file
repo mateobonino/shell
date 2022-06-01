@@ -4,13 +4,12 @@
 touch /var/run/myscript.pid
 myscriptpid=$(pidof /var/run/myscript.pid)
 echo "$myscriptpid" > /var/run/myscript.pid
-scriptPID=$$
 
 while :
 do
 	echo "To infinity and beyond"
 	sleep 2
-	trap 'echo "I hate the kill command"; sudo rm /var/run/myscript.pid; kill $scriptPID ' SIGTERM
+	trap 'echo "I hate the kill command"; sudo rm /var/run/myscript.pid; exit' SIGTERM
 	trap 'echo "Y U no love me?!"' SIGINT
-	trap 'sudo rm /var/run/myscript.pid; kill $scriptPID' SIGQUIT
+	trap 'sudo rm /var/run/myscript.pid; exit' SIGQUIT || SIGTERM
 done
