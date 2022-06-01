@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Process and PID file
+
+
+myscriptpid=$(pidof /var/run/myscript.pid)
