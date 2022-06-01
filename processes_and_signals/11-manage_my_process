@@ -1,4 +1,35 @@
 #!/usr/bin/env bash
 #Manage my process
 
+scriptPID=$(pidof ./manage_my_process)
 
+startmmp() {
+
+	sudo touch /var/run/my_process.pid
+	./manage_my_process &
+	sudo echo "$scriptPID" > /var/run/my_process.pid
+	echo "manage_my_process started"
+}
+
+stopmmp() {
+
+	kill -15 $scriptPID
+	sudo rm /var/run/my_process.pid
+	echo "manage_my_process stopped"
+}
+
+restartmmp() {
+
+	kill -15 $scriptPID
+	sudo rm /var/run/my_process.pid
+	./manage_my_process &
+	sudo touch /var/run/my_process.pid
+	echo "manage_my_process restarted"
+}
+
+case $1 in 
+	start) startmmp();;
+	stop) stopmmp();;
+	restart) restartmmp();;
+	*) echo "Usage: manage_my_process {start|stop|restart}"
+esac
