@@ -7,7 +7,7 @@ startmmp() {
 
 	sudo touch /var/run/my_process.pid
 	./manage_my_process &
-	sudo echo "$scriptPID" > /var/run/my_process.pid
+	echo "$scriptPID" > /var/run/my_process.pid
 	echo "manage_my_process started"
 }
 
