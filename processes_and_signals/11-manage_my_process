@@ -2,28 +2,29 @@
 #Manage my process
 
 scriptPID=$(pidof ./manage_my_process)
-
+FILE=/var/run/my_process.pid
 startmmp() {
 
 	sudo touch /var/run/my_process.pid
 	./manage_my_process &
-	echo "$scriptPID" > /var/run/my_process.pid
+	echo "$scriptPID" > "$FILE"
 	echo "manage_my_process started"
 }
 
 stopmmp() {
 
 	kill -15 "$scriptPID"
-	sudo rm -f  /var/run/my_process.pid
+	rm -f "$FILE"
 	echo "manage_my_process stopped"
 }
 
 restartmmp() {
 
 	kill -15 "$scriptPID"
-	sudo rm -f /var/run/my_process.pid
+	rm -f "$FILE"
 	./manage_my_process &
 	sudo touch /var/run/my_process.pid
+	echo "$scriptPID" > $FILE
 	echo "manage_my_process restarted"
 }
 
