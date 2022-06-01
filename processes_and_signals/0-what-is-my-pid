@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#get my PID
+
+pidof ./0-what-is-my-pid
