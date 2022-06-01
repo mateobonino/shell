@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #List processes
 
-ps ux | less
+ps aux
