@@ -28,8 +28,8 @@ restartmmp() {
 }
 
 case $1 in 
-	start) startmmp();;
-	stop) stopmmp();;
-	restart) restartmmp();;
+	start) startmmp;;
+	stop) stopmmp;;
+	restart) restartmmp;;
 	*) echo "Usage: manage_my_process {start|stop|restart}"
 esac
