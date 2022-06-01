@@ -14,14 +14,14 @@ startmmp() {
 stopmmp() {
 
 	kill -15 "$scriptPID"
-	sudo rm /var/run/my_process.pid
+	sudo rm -f  /var/run/my_process.pid
 	echo "manage_my_process stopped"
 }
 
 restartmmp() {
 
 	kill -15 "$scriptPID"
-	sudo rm /var/run/my_process.pid
+	sudo rm -f /var/run/my_process.pid
 	./manage_my_process &
 	sudo touch /var/run/my_process.pid
 	echo "manage_my_process restarted"
