@@ -4,7 +4,7 @@
 scriptPID=$(pidof ./manage_my_process)
 FILE=/var/run/my_process.pid
 
-startmmp() {
+start() {
 
 	sudo touch "$FILE"
 	./manage_my_process &
@@ -12,13 +12,13 @@ startmmp() {
 	echo "manage_my_process started"
 }
 
-stopmmp() {
+stop() {
 
 	sudo kill -15 "$scriptPID" && rm -f "$FILE"
 	echo "manage_my_process stopped"
 }
 
-restartmmp() {
+restart() {
 
 	sudo kill -15 "$scriptPID" && rm -f "$FILE"
 	./manage_my_process &
@@ -28,8 +28,8 @@ restartmmp() {
 }
 
 case $1 in 
-	start) startmmp;;
-	stop) stopmmp;;
-	restart) restartmmp;;
+	start) start;;
+	stop) stop;;
+	restart) restart;;
 	*) echo "Usage: manage_my_process {start|stop|restart}"
 esac
