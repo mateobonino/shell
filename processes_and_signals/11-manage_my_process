@@ -13,13 +13,13 @@ start() {
 
 stop() {
 
-	sudo kill -15 $( cat $FILE ) && rm -f "$FILE"
+	sudo kill -15 "$( cat $FILE )" && rm -f "$FILE"
 	echo "manage_my_process stopped"
 }
 
 restart() {
 
-	sudo kill -15 $( cat $FILE ) && rm -f "$FILE"
+	sudo kill -15 "$( cat $FILE )" && rm -f "$FILE"
 	./manage_my_process &
 	sudo touch "$FILE"
 	echo $$ > $FILE
