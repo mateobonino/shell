@@ -12,7 +12,7 @@ start() {
 
 stop() {
 
-	sudo kill -15 "$( cat $FILE )" 
+	sudo kill -9 "$( cat $FILE )" 
 	sudo rm -f "$FILE"
 }
 
