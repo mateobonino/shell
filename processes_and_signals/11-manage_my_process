@@ -1,29 +1,28 @@
 #!/usr/bin/env bash
 #Manage my process
 
-scriptPID=$(pidof ./manage_my_process)
 FILE=/var/run/my_process.pid
 
 start() {
 
 	sudo touch "$FILE"
 	./manage_my_process &
-	echo "$scriptPID" > "$FILE"
+	echo $$ > "$FILE"
 	echo "manage_my_process started"
 }
 
 stop() {
 
-	sudo kill -15 "$scriptPID" && rm -f "$FILE"
+	sudo kill -15 $( cat $FILE ) && rm -f "$FILE"
 	echo "manage_my_process stopped"
 }
 
 restart() {
 
-	sudo kill -15 "$scriptPID" && rm -f "$FILE"
+	sudo kill -15 $( cat $FILE ) && rm -f "$FILE"
 	./manage_my_process &
 	sudo touch "$FILE"
-	echo "$scriptPID" > $FILE
+	echo $$ > $FILE
 	echo "manage_my_process restarted"
 }
 
