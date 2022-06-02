@@ -2,7 +2,7 @@
 #Manage my process
 
 FILE=/var/run/my_process.pid
-FILEPID=$( pgrep -fa | cut -d ' '-f1 ) 
+FILEPID=$( pgrep -fn 'manage_my_process') 
 
 start() {
 
