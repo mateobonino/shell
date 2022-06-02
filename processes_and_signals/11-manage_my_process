@@ -2,18 +2,18 @@
 #Manage my process
 
 FILE=/var/run/my_process.pid
-
+FILEPID=$( pgrep -fa | cut -d ' '-f1 ) 
 start() {
 
 	sudo touch "$FILE"
 	./manage_my_process &
-	echo $$ > "$FILE"
+	echo "$FILEPID" > "$FILE"
 }
 
 stop() {
 
 	sudo kill -9 "$( cat $FILE )" 
-	sudo rm -f "$FILE"
+	rm -f "$FILE"
 }
 
 case $1 in 
