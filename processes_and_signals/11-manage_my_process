@@ -12,7 +12,8 @@ start() {
 
 stop() {
 
-	sudo kill -15 "$( cat $FILE )" && sudo rm -f "$FILE"
+	sudo kill -15 "$( cat $FILE )" 
+	sudo rm -f "$FILE"
 }
 
 case $1 in 
