@@ -2,13 +2,12 @@
 #Manage my process
 
 FILE=/var/run/my_process.pid
-FILEPID=$( pgrep -fn 'manage_my_process') 
 
 start() {
 
 	sudo touch "$FILE"
 	./manage_my_process &
-	echo "$FILEPID" > "$FILE"
+	echo "$!" > "$FILE"
 }
 
 stop() {
