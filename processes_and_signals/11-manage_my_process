@@ -3,6 +3,7 @@
 
 FILE=/var/run/my_process.pid
 FILEPID=$( pgrep -fa | cut -d ' '-f1 ) 
+
 start() {
 
 	sudo touch "$FILE"
@@ -13,7 +14,7 @@ start() {
 stop() {
 
 	sudo kill -9 "$( cat $FILE )" 
-	rm -f "$FILE"
+	sudo rm "$FILE"
 }
 
 case $1 in 
